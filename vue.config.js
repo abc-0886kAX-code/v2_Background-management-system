@@ -79,7 +79,7 @@ const OPTIONS = {
         // 移除 preload 插件，避免加载多余的资源
         config.plugins.delete('preload');
         config.plugin('html').tap(args => {
-            args[0].title = 'Mock后台管理系统';
+            args[0].title = '后台管理系统';
             return args;
         })
     },

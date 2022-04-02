@@ -2,34 +2,72 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:05
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-01 17:07:05
+ * @LastEditTime: 2022-04-02 15:47:19
  * @Description: 
 -->
 <template>
-    <div class=""></div>
+    <div class="menu-layout">
+        <menu class="menu-aside" :menuMap="routerMap"></menu>
+
+        <main class="menu-main" :key="routeName">
+            <transition>
+                <router-view />
+            </transition>
+        </main>
+    </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import Menu from "@/components/menu";
+import { mapGetters } from "vuex";
+import { arrayAs, deepRange } from "@/utils";
 export default {
     name: "menu-layout",
     //混入
     mixins: [],
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: { Menu },
     props: {},
     data() {
         //这里存放数据
         return {};
     },
     //监听属性 类似于data概念
-    computed: {},
+    computed: {
+        ...mapGetters({
+            addRoutes: "permission/addRoutes",
+        }),
+        routeName() {
+            const { name } = this.$route;
+            return name;
+        },
+        routerMap() {
+            const { matched } = this.$route;
+            return this.setRouterMap(matched[1].name);
+        },
+    },
     //监控data中的数据变化
     watch: {},
     //方法集合
-    methods: {},
+    methods: {
+        setRouterMap(name) {
+            const router = deepRange(this.addRoutes, "children").filter(
+                (item) => {
+                    this.selectRouteName(tiem, name);
+                }
+            );
+
+            return arrayAs(router) && arrayAs(router[0].children)
+                ? router[0].children
+                : [];
+        },
+        selectRouteName(route, name) {
+            const { name: baseName } = route;
+            return baseName === name;
+        },
+    },
     //生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     //生命周期 - 挂载完成（可以访问DOM元素）
@@ -43,5 +81,29 @@ export default {
     activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
-<style scoped>
+<style lang="scss" scoped>
+.menu-layout {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    & .menu-aside {
+        width: 200px;
+        height: auto;
+        min-height: 100%;
+        // background-image: linear-gradient(to right, #25afdf, #10244b);
+        background: #0c132d;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    & .menu-main {
+        position: relative;
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+    }
+}
 </style>

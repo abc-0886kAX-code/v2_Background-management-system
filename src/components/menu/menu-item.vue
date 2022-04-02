@@ -1,27 +1,48 @@
 <!--
  * @Author: zhangxin
- * @Date: 2022-01-27 13:59:02
+ * @Date: 2022-04-02 13:59:47
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 13:19:27
+ * @LastEditTime: 2022-04-02 15:40:05
  * @Description: 
 -->
 <template>
-    <div id="app">
-        <home></home>
-    </div>
+    <a-sub-menu :key="cell.name">
+        <template slot="title">
+            <i :class="getIcon(cell)"></i>
+            <span>{{ getTitle(cell) }}</span>
+        </template>
+
+        <template v-for="item in cell.children">
+            <menu-item
+                class="menu-item"
+                v-if="renderSubmenu(item)"
+                :key="item.name"
+                :cell="item"
+            >
+            </menu-item>
+
+            <a-menu-item v-else-if="renderMenu(item)" :key="item.name">
+                <i :class="getIcon(item)"></i>
+                <span>{{ getTitle(item) }}</span>
+            </a-menu-item>
+        </template>
+    </a-sub-menu>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import Home from "@/pages/home";
+import MenuMixins from "@/mixins/menu.mixins";
+
 export default {
-    name: "app",
+    name: "menu-item",
     //混入
-    mixins: [],
+    mixins: [MenuMixins],
     //import引入的组件需要注入到对象中才能使用
-    components: { Home },
-    props: {},
+    components: {},
+    props: {
+        cell: Object,
+    },
     data() {
         //这里存放数据
         return {};
@@ -45,3 +66,5 @@ export default {
     activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
+<style scoped>
+</style>

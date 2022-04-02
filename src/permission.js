@@ -2,11 +2,11 @@
  * @Author: zhangxin
  * @Date: 2022-02-22 16:33:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-01 16:38:05
+ * @LastEditTime: 2022-04-02 11:21:44
  * @Description: 
  */
 import { TOKEN_KEY } from '@/config/constant';
-import router from '@/router';
+import router, { notRoutes } from '@/router';
 import store from '@/store';
 import { notification } from 'ant-design-vue';
 import NProgress from 'nprogress'; // 进度条
@@ -22,10 +22,12 @@ router.beforeEach(async (to, from, next) => {
     if (hasToken) {
         if (to.path === '/login') {
             next({ path: '/' })
+            NProgress.done();
         } else {
             const hasRoles = false;
             if (hasRoles) {
                 next()
+                NProgress.done();
             } else {
                 try {
                     const role = store.getters.role;
@@ -36,8 +38,10 @@ router.beforeEach(async (to, from, next) => {
 
                     const accessRoutes = await store.dispatch('permission/generateRoutes', resultRoutes);
 
-
-                    console.log(accessRoutes);
+                    accessRoutes.push(notRoutes);
+                    console.log(accessRoutes)
+                    router.addRoute(accessRoutes);
+                    next({ ...to, replace: true })
 
                 } catch (err) {
                     console.log(err);
@@ -57,6 +61,12 @@ router.beforeEach(async (to, from, next) => {
             next()
         } else {
             next('/login')
+            NProgress.done();
         }
     }
+})
+
+
+router.afterEach(() => {
+    NProgress.done();
 })
