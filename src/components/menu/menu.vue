@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 13:59:29
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 15:40:01
+ * @LastEditTime: 2022-04-02 17:49:00
  * @Description: 
 -->
 
@@ -33,7 +33,7 @@
 import MenuItem from "./menu-item.vue";
 import MenuMixins from "@/mixins/menu.mixins";
 export default {
-    name: "",
+    name: "menu",
     //混入
     mixins: [MenuMixins],
     //import引入的组件需要注入到对象中才能使用

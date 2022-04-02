@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:05
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 15:47:19
+ * @LastEditTime: 2022-04-02 17:51:51
  * @Description: 
 -->
 <template>
@@ -10,7 +10,7 @@
         <menu class="menu-aside" :menuMap="routerMap"></menu>
 
         <main class="menu-main" :key="routeName">
-            <transition>
+            <transition name="">
                 <router-view />
             </transition>
         </main>

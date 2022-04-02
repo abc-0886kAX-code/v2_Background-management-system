@@ -2,14 +2,16 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 11:05:33
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 13:46:07
+ * @LastEditTime: 2022-04-02 17:46:40
  * @Description: 
 -->
 <template>
     <div class="home">
         <a-layout>
             <!-- 侧边栏 -->
-            <a-layout-sider> sider </a-layout-sider>
+            <a-layout-sider>
+                <MenuLayout />
+            </a-layout-sider>
             <a-layout>
                 <a-layout-header :style="{ background: '#fff', padding: 0 }" />
                 <a-layout-content :style="{ margin: '24px 16px 0' }">
@@ -34,13 +36,13 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-
+import MenuLayout from "@/pages/layout/menu-layout";
 export default {
     name: "home",
     //混入
     mixins: [],
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: { MenuLayout },
     props: {},
     data() {
         //这里存放数据
