@@ -2,18 +2,18 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:05
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 17:51:51
+ * @LastEditTime: 2022-04-07 17:20:09
  * @Description: 
 -->
 <template>
     <div class="menu-layout">
         <menu class="menu-aside" :menuMap="routerMap"></menu>
 
-        <main class="menu-main" :key="routeName">
+        <!-- <main class="menu-main" :key="routeName">
             <transition name="">
                 <router-view />
             </transition>
-        </main>
+        </main> -->
     </div>
 </template>
 
@@ -55,7 +55,7 @@ export default {
         setRouterMap(name) {
             const router = deepRange(this.addRoutes, "children").filter(
                 (item) => {
-                    this.selectRouteName(tiem, name);
+                    this.selectRouteName(item, name);
                 }
             );
 
@@ -69,7 +69,9 @@ export default {
         },
     },
     //生命周期 - 创建完成（可以访问当前this实例）
-    created() {},
+    created() {
+        console.log(this.addRoutes);
+    },
     //生命周期 - 挂载完成（可以访问DOM元素）
     mounted() {},
     beforeCreate() {}, //生命周期 - 创建之前
@@ -88,13 +90,10 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-
     & .menu-aside {
-        width: 200px;
+        width: auto;
         height: auto;
         min-height: 100%;
-        // background-image: linear-gradient(to right, #25afdf, #10244b);
-        background: #0c132d;
         overflow-x: hidden;
         overflow-y: auto;
     }

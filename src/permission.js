@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-02-22 16:33:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 11:21:44
+ * @LastEditTime: 2022-04-07 17:03:46
  * @Description: 
  */
 import { TOKEN_KEY } from '@/config/constant';
@@ -39,8 +39,7 @@ router.beforeEach(async (to, from, next) => {
                     const accessRoutes = await store.dispatch('permission/generateRoutes', resultRoutes);
 
                     accessRoutes.push(notRoutes);
-                    console.log(accessRoutes)
-                    router.addRoute(accessRoutes);
+                    router.addRoutes(accessRoutes);
                     next({ ...to, replace: true })
 
                 } catch (err) {

@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-02-25 10:38:04
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 12:04:01
+ * @LastEditTime: 2022-04-07 17:59:29
  * @Description: 
  */
 
@@ -50,15 +50,7 @@ export const constantRouterMap = [
             power: false
         },
         component: () => import('@/pages/404')
-    }, {
-        path: '/home',
-        name: 'home',
-        meta: {
-            title: "home",
-            power: false
-        },
-        component: () => import('@/pages/home')
-    },
+    }
 
 ]
 
@@ -66,7 +58,8 @@ export const constantRouterMap = [
 
 const createRouter = () => new Router({
     mode: 'hash',
-    routers: constantRouterMap
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRouterMap
 })
 
 const router = createRouter()
@@ -91,7 +84,6 @@ export const RouterComponents = {
  * @returns {Array} 
  */
 export const generator = (routerMap, parent) => {
-    console.log(routerMap)
     return routerMap.map(item => {
         // MODULE_NOT_FOUND
         const { title, hidden, icon } = item.meta || {};

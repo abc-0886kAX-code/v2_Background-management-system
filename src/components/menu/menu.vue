@@ -2,15 +2,16 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 13:59:29
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 17:49:00
+ * @LastEditTime: 2022-04-07 09:53:40
  * @Description: 
 -->
 
 <template>
     <a-mentu
-        mode="vertical"
+        mode="inline"
         @select="routerSelect"
         :selectedKeys="selectedKeys"
+        :inline-collapsed="collapsed"
     >
         <template v-for="cell in menuMap">
             <menu-item
@@ -43,9 +44,9 @@ export default {
             type: Array,
             default: () => [],
         },
-        cutOff: {
-            type: Number,
-            default: () => 1,
+        collapsed: {
+            type: Boolean,
+            default: false,
         },
     },
     data() {

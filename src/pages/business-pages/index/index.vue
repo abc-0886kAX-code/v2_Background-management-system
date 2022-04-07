@@ -1,13 +1,12 @@
 <!--
  * @Author: zhangxin
- * @Date: 2022-02-25 10:46:48
+ * @Date: 2022-04-07 13:35:49
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 11:31:06
+ * @LastEditTime: 2022-04-07 16:48:29
  * @Description: 
 -->
-
 <template>
-    <div class="not-page">404</div>
+    <div class="index">index</div>
 </template>
 
 <script>
@@ -15,7 +14,7 @@
 //例如：import 《组件名称》 from '《组件路径》';
 
 export default {
-    name: "404",
+    name: "index",
     //混入
     mixins: [],
     //import引入的组件需要注入到对象中才能使用
@@ -45,5 +44,9 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "./index.scss";
+.index {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
 </style>

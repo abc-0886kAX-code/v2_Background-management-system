@@ -3,97 +3,39 @@
     "total": 1,
     "data": [
         {
-            "redirect": "",
+            "redirect": "/business-pages",
             "path": "/",
-            "component": "/home",
+            "component": "",
             "level": "",
             "children": [
                 {
-                    "redirect": "/drainage/real-monitor",
-                    "path": "drainage",
+                    "redirect": "/business-pages/index",
+                    "path": "/business-pages",
                     "component": "/layout/menu-layout",
                     "level": "",
                     "children": [
                         {
-                            "redirect": "/equipment/equipment-mananger/eq-overview",
-                            "path": "equipment",
-                            "component": "/layout/main-layout",
+                            "redirect": "",
+                            "path": "/business-pages/index",
+                            "component": "/business-pages/index",
                             "level": "",
-                            "children": [
-                                {
-                                    "redirect": "",
-                                    "path": "equipment-mananger",
-                                    "component": "/layout/main-layout",
-                                    "level": "",
-                                    "children": [
-                                        {
-                                            "redirect": "",
-                                            "path": "eq-overview",
-                                            "component": "/equipment/eq-overview",
-                                            "level": "",
-                                            "children": [],
-                                            "meta": {
-                                                "hidden": "true",
-                                                "icon": "iconfont icon-fengxianguankong",
-                                                "title": "设备概览"
-                                            },
-                                            "query": "",
-                                            "name": "eq-overview"
-                                        },
-                                        {
-                                            "redirect": "",
-                                            "path": "eq-standingbook",
-                                            "component": "/equipment/eq-standingbook",
-                                            "level": "",
-                                            "children": [],
-                                            "meta": {
-                                                "hidden": "true",
-                                                "icon": "iconfont icon-fengxianguankong",
-                                                "title": "设备台账"
-                                            },
-                                            "query": "",
-                                            "name": "eq-standingbook"
-                                        },
-                                        {
-                                            "redirect": "",
-                                            "path": "eq-register",
-                                            "component": "/equipment/eq-register",
-                                            "level": "",
-                                            "children": [],
-                                            "meta": {
-                                                "hidden": "true",
-                                                "icon": "iconfont icon-fengxianguankong",
-                                                "title": "设备登记"
-                                            },
-                                            "query": "",
-                                            "name": "eq-register"
-                                        }
-                                    ],
-                                    "meta": {
-                                        "hidden": "true",
-                                        "icon": "iconfont icon-fengxianguankong",
-                                        "title": "资产设备"
-                                    },
-                                    "query": "",
-                                    "name": "equipment-mananger"
-                                }
-                            ],
+                            "children": [],
                             "meta": {
                                 "hidden": "true",
                                 "icon": "iconfont icon-fengxianguankong",
-                                "title": "资产设备管理"
+                                "title": "你好"
                             },
                             "query": "",
-                            "name": "equipment"
+                            "name": "businessPagesIndex"
                         }
                     ],
                     "meta": {
                         "hidden": "true",
                         "icon": "iconfont icon-fengxianguankong",
-                        "title": "排水管理"
+                        "title": "工作台"
                     },
                     "query": "",
-                    "name": "drainage"
+                    "name": "businessPages"
                 }
             ],
             "meta": {

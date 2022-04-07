@@ -2,25 +2,24 @@
  * @Author: zhangxin
  * @Date: 2022-01-27 13:59:02
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 13:19:27
+ * @LastEditTime: 2022-04-07 17:28:31
  * @Description: 
 -->
 <template>
     <div id="app">
-        <home></home>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import Home from "@/pages/home";
 export default {
     name: "app",
     //混入
     mixins: [],
     //import引入的组件需要注入到对象中才能使用
-    components: { Home },
+    components: {},
     props: {},
     data() {
         //这里存放数据
