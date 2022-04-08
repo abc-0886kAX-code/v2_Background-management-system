@@ -5,18 +5,18 @@
         {
             "redirect": "/business-pages",
             "path": "/",
-            "component": "",
+            "component": "/home",
             "level": "",
             "children": [
                 {
                     "redirect": "/business-pages/index",
-                    "path": "/business-pages",
-                    "component": "/layout/menu-layout",
+                    "path": "business-pages",
+                    "component": "main-layout",
                     "level": "",
                     "children": [
                         {
                             "redirect": "",
-                            "path": "/business-pages/index",
+                            "path": "index",
                             "component": "/business-pages/index",
                             "level": "",
                             "children": [],

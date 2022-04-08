@@ -2,25 +2,19 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:05
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 17:20:09
+ * @LastEditTime: 2022-04-08 13:58:25
  * @Description: 
 -->
 <template>
     <div class="menu-layout">
-        <menu class="menu-aside" :menuMap="routerMap"></menu>
-
-        <!-- <main class="menu-main" :key="routeName">
-            <transition name="">
-                <router-view />
-            </transition>
-        </main> -->
+        <Menu-m class="menu-aside" :menuMap="routerMap"></Menu-m>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import Menu from "@/components/menu";
+import MenuM from "@/components/menu";
 import { mapGetters } from "vuex";
 import { arrayAs, deepRange } from "@/utils";
 export default {
@@ -28,7 +22,7 @@ export default {
     //混入
     mixins: [],
     //import引入的组件需要注入到对象中才能使用
-    components: { Menu },
+    components: { MenuM },
     props: {},
     data() {
         //这里存放数据
@@ -45,6 +39,7 @@ export default {
         },
         routerMap() {
             const { matched } = this.$route;
+            console.log(this.setRouterMap(matched[1].name));
             return this.setRouterMap(matched[1].name);
         },
     },
@@ -54,14 +49,9 @@ export default {
     methods: {
         setRouterMap(name) {
             const router = deepRange(this.addRoutes, "children").filter(
-                (item) => {
-                    this.selectRouteName(item, name);
-                }
+                (item) => this.selectRouteName(item, name)
             );
-
-            return arrayAs(router) && arrayAs(router[0].children)
-                ? router[0].children
-                : [];
+            return arrayAs(router) ? router : [];
         },
         selectRouteName(route, name) {
             const { name: baseName } = route;
@@ -69,9 +59,7 @@ export default {
         },
     },
     //生命周期 - 创建完成（可以访问当前this实例）
-    created() {
-        console.log(this.addRoutes);
-    },
+    created() {},
     //生命周期 - 挂载完成（可以访问DOM元素）
     mounted() {},
     beforeCreate() {}, //生命周期 - 创建之前
@@ -85,8 +73,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .menu-layout {
-    display: flex;
-    justify-content: space-between;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -96,13 +82,7 @@ export default {
         min-height: 100%;
         overflow-x: hidden;
         overflow-y: auto;
-    }
-
-    & .menu-main {
-        position: relative;
-        flex: 1;
-        height: 100%;
-        overflow: hidden;
+        background: transparent;
     }
 }
 </style>

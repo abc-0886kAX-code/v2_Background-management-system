@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:33
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 17:00:22
+ * @LastEditTime: 2022-04-08 11:00:26
  * @Description: 
 -->
 <template>
@@ -22,7 +22,7 @@
             <!-- 面包屑 -->
             <a-layout class="main">
                 <a-layout-content class="main-content">
-                    <div class="test"></div>
+                    <!-- <div class="test"></div> -->
                     <MainLayout />
                 </a-layout-content>
             </a-layout>
@@ -106,11 +106,6 @@ export default {
             height: 100%;
             padding: 25px;
             overflow: hidden;
-            & .test {
-                height: 100%;
-                width: 100%;
-                background: #fff;
-            }
         }
     }
     & .footer {

@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-07 13:35:49
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 16:48:29
+ * @LastEditTime: 2022-04-08 11:00:24
  * @Description: 
 -->
 <template>
@@ -47,6 +47,7 @@ export default {
 .index {
     width: 100%;
     height: 100%;
-    background-color: black;
+    border-radius: 10px;
+    background: #fff;
 }
 </style>

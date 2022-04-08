@@ -2,15 +2,15 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 13:59:24
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 13:59:24
+ * @LastEditTime: 2022-04-08 14:03:43
  * @Description: 
  */
 
-import Menu from './menu.vue';
+import MenuM from './menu-m.vue';
 
 /* istanbul ignore next */
-Menu.install = function (Vue) {
-    Vue.component(Menu.name, Menu);
+MenuM.install = function (Vue) {
+    Vue.component(MenuM.name, MenuM);
 };
 
-export default Menu;
+export default MenuM;

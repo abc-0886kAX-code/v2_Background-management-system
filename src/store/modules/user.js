@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @CreateTime: 2022-02-23 15:48:13
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-03-01 09:23:06
+ * @LastEditTime: 2022-04-08 09:43:37
  * @Description: ...
  */
 import { getRoutes, getUserInfo, login, logout } from '@/api/auth';
@@ -13,7 +13,8 @@ const state = {
     token: getCookie(TOKEN_KEY) || '',
     role: getCookie(ROLE) || '',
     name: getCookie(NAME || ''),
-    roleType: {}
+    roleType: {},
+    roleList: []
 };
 
 const mutations = {
@@ -28,6 +29,9 @@ const mutations = {
     },
     SET_INFO: (state, roleType) => {
         state.roleType = roleType
+    },
+    SET_ROLELIST: (state, roleList) => {
+        state.roleList = roleList
     }
 }
 
@@ -73,6 +77,7 @@ const actions = {
     getRoutes({ commit }, roleType) {
         return new Promise((resolve, reject) => {
             getRoutes({ roleType }).then((response) => {
+                commit('SET_ROLELIST', ['11'])
                 resolve(response)
             }).catch(err => {
                 reject(err)

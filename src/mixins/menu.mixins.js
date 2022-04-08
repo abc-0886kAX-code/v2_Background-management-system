@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 15:36:27
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 15:37:28
+ * @LastEditTime: 2022-04-08 14:10:30
  * @Description: 
  */
 import { defaultString } from "@/utils";
@@ -29,6 +29,7 @@ export default {
         },
         renderMenu(cell) {
             const { meta } = cell;
+
             return meta?.hidden === "true";
         },
         getIcon(cell) {

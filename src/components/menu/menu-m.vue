@@ -1,60 +1,76 @@
 <!--
  * @Author: zhangxin
- * @Date: 2022-04-02 13:59:47
+ * @Date: 2022-04-02 13:59:29
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-02 15:40:05
+ * @LastEditTime: 2022-04-08 14:09:51
  * @Description: 
 -->
+
 <template>
-    <a-sub-menu :key="cell.name">
-        <template slot="title">
-            <i :class="getIcon(cell)"></i>
-            <span>{{ getTitle(cell) }}</span>
-        </template>
+    <a-menu
+        mode="vertical"
+        @select="routerSelect"
+        :selected-keys="selectedKeys"
+        theme="dark"
+    >
+        <template v-for="cell in menuMap">
+            <menu-m-item
+                v-if="renderSubmenu(cell)"
+                :key="cell.name"
+                :cell="cell"
+            ></menu-m-item>
 
-        <template v-for="item in cell.children">
-            <menu-item
-                class="menu-item"
-                v-if="renderSubmenu(item)"
-                :key="item.name"
-                :cell="item"
-            >
-            </menu-item>
-
-            <a-menu-item v-else-if="renderMenu(item)" :key="item.name">
-                <i :class="getIcon(item)"></i>
-                <span>{{ getTitle(item) }}</span>
+            <a-menu-item v-else-if="renderMenu(cell)" :key="cell.name">
+                <i :class="getIcon(cell)"></i>
+                <span>{{ getTitle(cell) }}</span>
             </a-menu-item>
         </template>
-    </a-sub-menu>
+    </a-menu>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
+import MenuMItem from "./menu-m-item.vue";
 import MenuMixins from "@/mixins/menu.mixins";
-
 export default {
-    name: "menu-item",
+    name: "menu-m",
     //混入
     mixins: [MenuMixins],
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: { MenuMItem },
     props: {
-        cell: Object,
+        menuMap: {
+            type: Array,
+            default: () => [],
+        },
     },
     data() {
         //这里存放数据
         return {};
     },
     //监听属性 类似于data概念
-    computed: {},
+    computed: {
+        selectedKeys() {
+            const { name } = this.$route;
+
+            return [name];
+        },
+    },
     //监控data中的数据变化
     watch: {},
     //方法集合
-    methods: {},
+    methods: {
+        routerSelect(routeName) {
+            const routeOptions = { name: routeName };
+
+            this.$router.push(routeOptions);
+        },
+    },
     //生命周期 - 创建完成（可以访问当前this实例）
-    created() {},
+    created() {
+        console.log(this.menuMap);
+    },
     //生命周期 - 挂载完成（可以访问DOM元素）
     mounted() {},
     beforeCreate() {}, //生命周期 - 创建之前

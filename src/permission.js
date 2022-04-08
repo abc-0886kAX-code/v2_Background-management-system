@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-02-22 16:33:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 17:03:46
+ * @LastEditTime: 2022-04-08 13:07:19
  * @Description: 
  */
 import { TOKEN_KEY } from '@/config/constant';
@@ -24,10 +24,9 @@ router.beforeEach(async (to, from, next) => {
             next({ path: '/' })
             NProgress.done();
         } else {
-            const hasRoles = false;
+            const hasRoles = store.getters.roleList && store.getters.roleList > 0;
             if (hasRoles) {
                 next()
-                NProgress.done();
             } else {
                 try {
                     const role = store.getters.role;
@@ -52,6 +51,8 @@ router.beforeEach(async (to, from, next) => {
 
                     await store.dispatch('user/logout')
                     next('/login')
+                    NProgress.done();
+
                 }
             }
         }
