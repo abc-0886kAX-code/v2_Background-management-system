@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:33
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 11:00:26
+ * @LastEditTime: 2022-04-08 18:12:09
  * @Description: 
 -->
 <template>
@@ -18,12 +18,30 @@
                     :type="collapsed ? 'menu-unfold' : 'menu-fold'"
                     @click="() => (collapsed = !collapsed)"
                 />
+                <a-dropdown class="avatar-dropdown">
+                    <a
+                        class="ant-dropdown-link"
+                        @click="(e) => e.preventDefault()"
+                    >
+                        Hover me
+                    </a>
+                    <a-menu slot="overlay">
+                        <a-menu-divider />
+                        <a-menu-item @click="logout"
+                            ><a-icon type="logout" /><span
+                                >Logout</span
+                            ></a-menu-item
+                        >
+                    </a-menu>
+                </a-dropdown>
             </a-layout-header>
             <!-- 面包屑 -->
             <a-layout class="main">
                 <a-layout-content class="main-content">
                     <!-- <div class="test"></div> -->
-                    <MainLayout />
+                    <transition name="fade">
+                        <MainLayout />
+                    </transition>
                 </a-layout-content>
             </a-layout>
             <a-layout-footer class="footer">
@@ -56,7 +74,13 @@ export default {
     //监控data中的数据变化
     watch: {},
     //方法集合
-    methods: {},
+    methods: {
+        logout() {
+            this.$store.dispatch("user/logout").then((res) => {
+                this.$router.push({ name: "login" });
+            });
+        },
+    },
     //生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     //生命周期 - 挂载完成（可以访问DOM元素）
@@ -80,6 +104,9 @@ export default {
         align-items: center;
         background: #fff;
         padding: 0;
+        & .avatar-dropdown {
+            margin-left: auto;
+        }
         & .trigger {
             font-size: 22px;
             padding-left: 25px;
@@ -111,5 +138,12 @@ export default {
     & .footer {
         text-align: center;
     }
+}
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
 }
 </style>

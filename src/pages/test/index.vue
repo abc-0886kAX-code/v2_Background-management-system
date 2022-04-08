@@ -1,21 +1,20 @@
 <!--
  * @Author: zhangxin
- * @Date: 2022-01-27 13:59:02
+ * @Date: 2022-04-08 15:29:28
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 16:48:02
+ * @LastEditTime: 2022-04-08 15:29:29
  * @Description: 
 -->
 <template>
-    <div id="app">
-        <router-view></router-view>
-    </div>
+    <div class="test">test</div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
+
 export default {
-    name: "app",
+    name: "test",
     //混入
     mixins: [],
     //import引入的组件需要注入到对象中才能使用
@@ -44,3 +43,10 @@ export default {
     activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
 };
 </script>
+<style lang='scss' scoped>
+.test {
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+</style>

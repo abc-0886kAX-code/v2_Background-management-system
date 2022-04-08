@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 15:36:27
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 14:10:30
+ * @LastEditTime: 2022-04-08 16:54:30
  * @Description: 
  */
 import { defaultString } from "@/utils";
@@ -33,6 +33,7 @@ export default {
             return meta?.hidden === "true";
         },
         getIcon(cell) {
+            console.log(cell)
             const { meta } = cell;
             const { icon } = meta;
             return defaultString(icon, "");

@@ -2,15 +2,17 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 13:59:29
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 14:09:51
+ * @LastEditTime: 2022-04-08 16:52:54
  * @Description: 
 -->
 
 <template>
     <a-menu
-        mode="vertical"
+        mode="inline"
         @select="routerSelect"
+        @openChange="onOpenChange"
         :selected-keys="selectedKeys"
+        :default-open-keys="openKeys"
         theme="dark"
     >
         <template v-for="cell in menuMap">
@@ -21,7 +23,7 @@
             ></menu-m-item>
 
             <a-menu-item v-else-if="renderMenu(cell)" :key="cell.name">
-                <i :class="getIcon(cell)"></i>
+                <a-icon :type="getIcon(cell)"></a-icon>
                 <span>{{ getTitle(cell) }}</span>
             </a-menu-item>
         </template>
@@ -44,6 +46,10 @@ export default {
             type: Array,
             default: () => [],
         },
+        openKeys: {
+            type: Array,
+            default: () => [],
+        },
     },
     data() {
         //这里存放数据
@@ -61,16 +67,17 @@ export default {
     watch: {},
     //方法集合
     methods: {
-        routerSelect(routeName) {
-            const routeOptions = { name: routeName };
+        routerSelect({ key }) {
+            const routeOptions = { name: key };
 
             this.$router.push(routeOptions);
         },
+        onOpenChange(openKeys) {
+            console.log("展开/关闭menu回调");
+        },
     },
     //生命周期 - 创建完成（可以访问当前this实例）
-    created() {
-        console.log(this.menuMap);
-    },
+    created() {},
     //生命周期 - 挂载完成（可以访问DOM元素）
     mounted() {},
     beforeCreate() {}, //生命周期 - 创建之前

@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-02-22 16:33:22
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 13:07:19
+ * @LastEditTime: 2022-04-08 16:47:35
  * @Description: 
  */
 import { TOKEN_KEY } from '@/config/constant';
@@ -10,6 +10,7 @@ import router, { notRoutes } from '@/router';
 import store from '@/store';
 import { notification } from 'ant-design-vue';
 import NProgress from 'nprogress'; // 进度条
+import 'nprogress/nprogress.css';
 import { getCookie } from './utils/cookie';
 
 NProgress.configure({ showSpinner: false }) // 禁止进度环;

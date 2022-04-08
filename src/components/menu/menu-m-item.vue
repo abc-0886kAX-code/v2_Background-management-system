@@ -2,13 +2,13 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 13:59:47
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 14:11:10
+ * @LastEditTime: 2022-04-08 16:53:17
  * @Description: 
 -->
-<template functional>
-    <a-sub-menu :key="cell.name">
+<template>
+    <a-sub-menu :key="cell.name" v-bind="$props" v-on="$listeners">
         <template slot="title">
-            <i :class="getIcon(cell)"></i>
+            <a-icon :type="getIcon(cell)"></a-icon>
             <span>{{ getTitle(cell) }}</span>
         </template>
 
@@ -22,7 +22,7 @@
             </menu-m-item>
 
             <a-menu-item v-else-if="renderMenu(item)" :key="item.name">
-                <i :class="getIcon(item)"></i>
+                <a-icon :type="getIcon(cell)"></a-icon>
                 <span>{{ getTitle(item) }}</span>
             </a-menu-item>
         </template>
@@ -33,14 +33,18 @@
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
 import MenuMixins from "@/mixins/menu.mixins";
+import { Menu } from "ant-design-vue";
 
 export default {
     name: "menu-m-item",
+
     //混入
     mixins: [MenuMixins],
     //import引入的组件需要注入到对象中才能使用
     components: {},
+    isSubMenu: true,
     props: {
+        ...Menu.SubMenu.props,
         cell: Object,
     },
     data() {

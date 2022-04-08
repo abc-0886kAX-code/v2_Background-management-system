@@ -22,7 +22,7 @@
                             "children": [],
                             "meta": {
                                 "hidden": "true",
-                                "icon": "iconfont icon-fengxianguankong",
+                                "icon": "",
                                 "title": "你好"
                             },
                             "query": "",
@@ -31,11 +31,25 @@
                     ],
                     "meta": {
                         "hidden": "true",
-                        "icon": "iconfont icon-fengxianguankong",
+                        "icon": "appstore",
                         "title": "工作台"
                     },
                     "query": "",
                     "name": "businessPages"
+                },
+                {
+                    "redirect": "",
+                    "path": "test",
+                    "component": "/test/index",
+                    "level": "",
+                    "children": [],
+                    "meta": {
+                        "hidden": "true",
+                        "icon": "exclamation",
+                        "title": "测试"
+                    },
+                    "query": "",
+                    "name": "test"
                 }
             ],
             "meta": {

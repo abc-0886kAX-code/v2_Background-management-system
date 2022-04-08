@@ -2,12 +2,16 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:05
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 13:58:25
+ * @LastEditTime: 2022-04-08 16:54:49
  * @Description: 
 -->
 <template>
     <div class="menu-layout">
-        <Menu-m class="menu-aside" :menuMap="routerMap"></Menu-m>
+        <Menu-m
+            class="menu-aside"
+            :openKeys="openKeys"
+            :menuMap="routerMap"
+        ></Menu-m>
     </div>
 </template>
 
@@ -33,14 +37,15 @@ export default {
         ...mapGetters({
             addRoutes: "permission/addRoutes",
         }),
-        routeName() {
-            const { name } = this.$route;
-            return name;
-        },
         routerMap() {
             const { matched } = this.$route;
-            console.log(this.setRouterMap(matched[1].name));
-            return this.setRouterMap(matched[1].name);
+
+            return this.setRouterMap(matched[0].name);
+        },
+        openKeys() {
+            const { matched } = this.$route;
+
+            return [matched[1].name] || [];
         },
     },
     //监控data中的数据变化
@@ -48,10 +53,16 @@ export default {
     //方法集合
     methods: {
         setRouterMap(name) {
-            const router = deepRange(this.addRoutes, "children").filter(
-                (item) => this.selectRouteName(item, name)
+            // const router = deepRange(this.addRoutes, "children").filter(
+            //     (item) => this.selectRouteName(item, name)
+            // );
+            const router = this.addRoutes.filter((item) =>
+                this.selectRouteName(item, name)
             );
-            return arrayAs(router) ? router : [];
+
+            return arrayAs(router) && arrayAs(router[0].children)
+                ? router[0].children
+                : [];
         },
         selectRouteName(route, name) {
             const { name: baseName } = route;
