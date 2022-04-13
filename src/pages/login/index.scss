@@ -3,6 +3,7 @@
     height: 100%;
     overflow: hidden;
     display: flex;
+    background:url('../../assets/login-page/login-page.png') no-repeat;
 }
 
 
@@ -13,7 +14,18 @@
 
 .login-item-right{
     width: 50%;
-    border: 1px solid darkblue;
+    // border: 1px solid darkblue;
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 30%;
+    h2{
+        font-weight: bold;
+        font-size: 30px;
+    }
 }
 
 .login-item-right-body{
@@ -21,8 +33,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 45%;
+    top: 35%;
 }
+
 
 .login-box{
     width: 40%;

@@ -3,14 +3,18 @@
      * @Author: zhangxin
      * @CreateTime: 2022-02-22 18:04:20
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 11:30:52
+ * @LastEditTime: 2022-04-13 17:13:46
      * @Description: ...
      */
  -->
 <template>
     <div class="login">
-        <div class="login-item-left"></div>
+        <!-- <div class="login-item-left"></div> -->
         <div class="login-item-right">
+            <div class="info">
+                <h2>WELCOME!</h2>
+            </div>
+
             <div class="login-item-right-body">
                 <a-form
                     ref="formRef"
