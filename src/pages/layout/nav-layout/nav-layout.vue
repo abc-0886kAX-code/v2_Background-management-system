@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:33
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 18:12:09
+ * @LastEditTime: 2022-04-13 14:40:53
  * @Description: 
 -->
 <template>
@@ -26,6 +26,14 @@
                         Hover me
                     </a>
                     <a-menu slot="overlay">
+                        <a-menu-item>
+                            <a
+                                href="https://github.com/abc-0886kAX-code/v2_Background-management-system"
+                                target="_blank"
+                            >
+                                <a-icon type="github" /><span>GitHub</span></a
+                            ></a-menu-item
+                        >
                         <a-menu-divider />
                         <a-menu-item @click="logout"
                             ><a-icon type="logout" /><span
@@ -45,7 +53,15 @@
                 </a-layout-content>
             </a-layout>
             <a-layout-footer class="footer">
-                Ant Design ©2022 Created by ZX
+                <p>
+                    <a
+                        href="https://github.com/abc-0886kAX-code/v2_Background-management-system"
+                        target="_blank"
+                        >GitHub</a
+                    >
+                </p>
+
+                Ant Design ©2022 Created by zhangxin
             </a-layout-footer>
         </a-layout>
     </a-layout>
@@ -100,16 +116,19 @@ export default {
     height: 100%;
     overflow: hidden;
     & .header {
+        position: relative;
         display: flex;
         align-items: center;
         background: #fff;
         padding: 0;
         & .avatar-dropdown {
-            margin-left: auto;
+            position: absolute;
+            right: 25px;
         }
         & .trigger {
             font-size: 22px;
-            padding-left: 25px;
+            position: absolute;
+            left: 25px;
         }
         .trigger:hover {
             color: #1890ff;
