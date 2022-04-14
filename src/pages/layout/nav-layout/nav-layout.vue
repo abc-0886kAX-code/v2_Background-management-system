@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-01 17:07:33
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-13 14:40:53
+ * @LastEditTime: 2022-04-14 09:56:33
  * @Description: 
 -->
 <template>
@@ -121,7 +121,12 @@ export default {
         align-items: center;
         background: #fff;
         padding: 0;
+        a {
+            text-decoration: none;
+            color: #333;
+        }
         & .avatar-dropdown {
+            width: 100px;
             position: absolute;
             right: 25px;
         }
