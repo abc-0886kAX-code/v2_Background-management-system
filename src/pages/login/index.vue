@@ -3,7 +3,7 @@
      * @Author: zhangxin
      * @CreateTime: 2022-02-22 18:04:20
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-13 17:13:46
+ * @LastEditTime: 2022-04-14 17:11:31
      * @Description: ...
      */
  -->
@@ -27,6 +27,7 @@
                             v-model="loginForm.username"
                             size="large"
                             placeholder="请输入登录名称"
+                            @pressEnter="login"
                         ></a-input>
                     </a-form-item>
                     <a-form-item label="" name="password">
@@ -34,11 +35,12 @@
                             v-model="loginForm.password"
                             size="large"
                             placeholder="请输入密码"
+                            @pressEnter="login"
                         ></a-input-password>
                     </a-form-item>
                     <a-form-item>
                         <a-button
-                            @click="login"
+                            @click.enter="login"
                             class="login-btn"
                             type="primary"
                             block
