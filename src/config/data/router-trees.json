@@ -52,30 +52,30 @@
                     "name": "test"
                 },
                 {
-                    "redirect": "/404/index",
-                    "path": "404",
+                    "redirect": "/not-page/index",
+                    "path": "not-page",
                     "component": "main-layout",
                     "level": "",
                     "children": [
                         {
                             "redirect": "",
                             "path": "index",
-                            "component": "/404/index",
+                            "component": "/not-page/index",
                             "level": "",
                             "children": [],
                             "meta": {
                                 "hidden": "true",
                                 "icon": "api",
-                                "title": "404页面"
+                                "title": "404"
                             },
                             "query": "",
-                            "name": "404"
+                            "name": "not-page"
                         }
                     ],
                     "meta": {
                         "hidden": "true",
                         "icon": "file-exclamation",
-                        "title": "特殊页面"
+                        "title": "异常页"
                     },
                     "query": "",
                     "name": "specialPages"

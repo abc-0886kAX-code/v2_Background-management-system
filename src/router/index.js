@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-02-25 10:38:04
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 17:59:29
+ * @LastEditTime: 2022-04-15 18:08:56
  * @Description: 
  */
 
@@ -49,7 +49,7 @@ export const constantRouterMap = [
             title: "404页面",
             power: false
         },
-        component: () => import('@/pages/404')
+        component: () => import('@/pages/not-page')
     }
 
 ]
