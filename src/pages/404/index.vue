@@ -2,12 +2,26 @@
  * @Author: zhangxin
  * @Date: 2022-02-25 10:46:48
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-07 11:31:06
+ * @LastEditTime: 2022-04-15 13:24:54
  * @Description: 
 -->
 
 <template>
-    <div class="not-page">404</div>
+    <div class="not-page">
+        <div class="not-page-item-left">
+            <div class="left-content">
+                <h1 class="label">404 Not Found</h1>
+                <span class="subtitle"
+                    >the page you are loking for might be removed or is
+                    temporanlly unavailoble</span
+                >
+                <a-button class="btn" type="primary" @click="toHome"
+                    >Come Home</a-button
+                >
+            </div>
+        </div>
+        <div class="not-page-item-right"></div>
+    </div>
 </template>
 
 <script>
@@ -30,7 +44,11 @@ export default {
     //监控data中的数据变化
     watch: {},
     //方法集合
-    methods: {},
+    methods: {
+        toHome() {
+            this.$router.push({ path: "/" });
+        },
+    },
     //生命周期 - 创建完成（可以访问当前this实例）
     created() {},
     //生命周期 - 挂载完成（可以访问DOM元素）

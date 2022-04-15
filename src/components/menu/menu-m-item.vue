@@ -2,7 +2,7 @@
  * @Author: zhangxin
  * @Date: 2022-04-02 13:59:47
  * @LastEditors: zhangxin
- * @LastEditTime: 2022-04-08 16:53:17
+ * @LastEditTime: 2022-04-15 13:33:43
  * @Description: 
 -->
 <template>
@@ -22,7 +22,7 @@
             </menu-m-item>
 
             <a-menu-item v-else-if="renderMenu(item)" :key="item.name">
-                <a-icon :type="getIcon(cell)"></a-icon>
+                <a-icon :type="getIcon(item)"></a-icon>
                 <span>{{ getTitle(item) }}</span>
             </a-menu-item>
         </template>

@@ -22,8 +22,8 @@
                             "children": [],
                             "meta": {
                                 "hidden": "true",
-                                "icon": "",
-                                "title": "你好"
+                                "icon": "pie-chart",
+                                "title": "统计"
                             },
                             "query": "",
                             "name": "businessPagesIndex"
@@ -46,10 +46,39 @@
                     "meta": {
                         "hidden": "true",
                         "icon": "exclamation",
-                        "title": "测试"
+                        "title": "一级菜单"
                     },
                     "query": "",
                     "name": "test"
+                },
+                {
+                    "redirect": "/404/index",
+                    "path": "404",
+                    "component": "main-layout",
+                    "level": "",
+                    "children": [
+                        {
+                            "redirect": "",
+                            "path": "index",
+                            "component": "/404/index",
+                            "level": "",
+                            "children": [],
+                            "meta": {
+                                "hidden": "true",
+                                "icon": "api",
+                                "title": "404页面"
+                            },
+                            "query": "",
+                            "name": "404"
+                        }
+                    ],
+                    "meta": {
+                        "hidden": "true",
+                        "icon": "file-exclamation",
+                        "title": "特殊页面"
+                    },
+                    "query": "",
+                    "name": "specialPages"
                 }
             ],
             "meta": {
